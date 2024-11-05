@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import * as z from "zod";
-import { ImageIcon } from "lucide-react";
+import { Download, ImageIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
@@ -180,7 +180,16 @@ const ImagePage = () => {
                 <div className='relative aspect-square'>
                   <Image alt='Image' fill src={src} />
                 </div>
-                <CardFooter></CardFooter>
+                <CardFooter className='p-2'>
+                  <Button
+                    onClick={() => window.open(src)}
+                    variant='secondary'
+                    className='w-full'
+                  >
+                    <Download className='h-4 w-4 mr-2' />
+                    Donwload
+                  </Button>
+                </CardFooter>
               </Card>
             ))}
           </div>
